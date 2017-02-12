@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<base href="/">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="resources/css/bootstrap.min.css">
+<link rel="stylesheet" href="views/adminPanel/adminPanel.css">
+<link rel="stylesheet" href="views/workSchedule/workScheduleAdd.css">
+
+<title>Strona Główna</title>
+</head>
+
+<body ng-app="com.mpk">
+	<!-- Resources -->
+	<!--<script src="resources/angular-animate.min.js"></script>-->
+
+	<script src="resources/angular.min.js"></script>
+	<script src="resources/angular-drag-and-drop-lists.min.js"></script>
+	<script src="resources/jquery-2.2.4.min.js"></script>
+	<script src="resources/angular-ui-router.min.js"></script>
+	<script src="resources/js/bootstrap.min.js"></script>
+	<script src="resources/ui-bootstrap-tpls-2.2.0.min.js"></script>
+	<script src="resources/restangular.min.js"></script>
+	<script src="resources/lodash.min.js"></script>
+	<script src="resources/angular-animate.min.js"></script>
+
+	<!--  google maps -->
+	<script src="js/googlemap/initMap.js"></script>
+	<!--  google maps -->
+
+
+	<!-- Modules -->
+	<script src="js/app.js"></script>
+	<script src="js/routing.js"></script>
+	<script src="js/navigation/navigation.directive.js"></script>
+	<script src="js/navigation/navigation.controller.js"></script>
+	<script src="js/navigation/navigation.service.js"></script>
+	<script src="js/registration/registration.directive.js"></script>
+	<script src="js/registration/registration.controller.js"></script>
+	<script src="js/registration/registration.service.js"></script>
+	<script src="js/home/homepage.directive.js"></script>
+	<script src="js/bus/busadd.directive.js"></script>
+	<script src="js/busline/buslineadd.directive.js"></script>
+	<script src="js/busstop/busstopadd.directive.js"></script>
+	<script src="js/adminPanel/adminPanel.directive.js"></script>
+	<script src="js/user/users.directive.js"></script>
+	<script src="js/user/users.controller.js"></script>
+	<script src="js/user/users.service.js"></script>
+	<script src="js/bus/buses.directive.js"></script>
+	<script src="js/bus/buses.controller.js"></script>
+	<script src="js/bus/buses.service.js"></script>
+	<script src="js/workSchedule/workScheduleAdd.directive.js"></script>
+	<script src="js/workSchedule/workScheduleAddChooseHours.directive.js"></script>
+	<script src="js/workSchedule/workScheduleAddDriverAndBus.directive.js"></script>
+	<script src="js/workSchedule/workScheduleAddConfirmation.directive.js"></script>
+	<script src="js/workSchedule/workSchedules.directive.js"></script>
+	<script src="js/workSchedule/workschedule.controller.js"></script>
+	<script src="js/workSchedule/workschedule.service.js"></script>
+	<script src="js/busstop/busstoptable.directive.js"></script>
+	<script src="js/busstop/busstoptable.controller.js"></script>
+	<script src="js/busstop/busstoptable.service.js"></script>
+
+	<script src="js/busline/buslinetable.directive.js"></script>
+	<script src="js/busline/buslinetable.controller.js"></script>
+	<script src="js/busline/buslinetable.service.js"></script>
+
+	<script src="js/route/route.directive.js"></script>
+	<script src="js/route/route.controller.js"></script>
+	<script src="js/route/route.service.js"></script>
+
+	<script src="js/timetable/timetable.directive.js"></script>
+	<script src="js/timetable/timetable.controller.js"></script>
+	<script src="js/timetable/timetable.service.js"></script>
+
+
+	<script src="js/driver/drivers.directive.js"></script>
+	<script src="js/driver/drivers.controller.js"></script>
+	<script src="js/driver/drivers.service.js"></script>
+	<script src="js/driver/driverAddForm.directive.js"></script>
+	<script src="js/map/map.directive.js"></script>
+
+	<script src="js/timetableAtBusStop/timetableAtBusStop.directive.js"></script>
+	<script src="js/timetableAtBusStop/timetableAtBusStop.controller.js"></script>
+	<script src="js/timetableAtBusStop/timetableAtBusStop.service.js"></script>
+
+	<navigation></navigation>
+	<adminpanel></adminpanel>
+	<div ui-view></div>
+	<!--  google maps -->
+	<script async defer
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjBIwRpWyulxiKKAwNXW5UjW2m0OzTsB8"></script>
+	<!--  google maps -->
+</body>
+</html>

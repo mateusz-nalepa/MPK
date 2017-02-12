@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" ui-sref="homepage">MPK</a>
+		</div>
+		<ul class="nav navbar-nav">
+			<li class="active"><a ui-sref="homepage">Home</a></li>
+			<li ng-click="$ctrl.initMap()"><a ui-sref="map">Busstop's map</a></li>
+			<li><a ui-sref="timetableAtBusStop">Rozkład jazdy</a></li>
+		</ul>
+		<form class="navbar-form navbar-right">
+			<button ng-if="$ctrl.role == 'ROLE_ADMIN'" type="button" class="btn btn-default"
+				ng-click="$ctrl.openAdminPanel()">Admin Menu</button>
+			<button type="button" class="btn btn-default"
+				ng-click="$ctrl.logOut()">Log Out</button>
+		</form>
+		<ul class="nav navbar-nav navbar-right">
+			<li><a ui-sref="homepage">Hello {{principal}}</a></li>
+		</ul>
+	</div>
+</nav>

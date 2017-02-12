@@ -1,0 +1,12 @@
+spring:
+  datasource:
+    url: jdbc:mysql://78.46.43.228:3306/starysad_mpk
+    username: starysad_mpk
+    password: j@vaMpk
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  data:
+    rest:
+      base-path: /api

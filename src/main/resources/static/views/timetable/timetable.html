@@ -1,0 +1,38 @@
+<h3>Timetable: Bus line #{{busLine}}</h3>
+<div class="row">
+    <div class="col-md-6">
+        <h4>Rozkład jazdy tam</h4>
+        <ul>
+        <li ng-repeat="timetable in timetables.straight | orderBy: 'departureTime'">
+            {{timetable.departureTime | date : "HH:mm"}}
+        </li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <h4>Rozkład jazdy z powrotem</h4>
+        <ul>
+            <li ng-repeat="timetable in timetables.reversed | orderBy: 'departureTime'">
+                {{timetable.departureTime | date : "HH:mm"}}
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <hr />
+    <div class="col-md-4">
+        <h4>Dodaj</h4>
+        <input class="form-control" type="time" ng-model="newTime.departureTime" />
+        <select class="form-control" ng-model="newTime.direction">
+            <option value="Straight">Tam</option>
+            <option value="Reversed">Z powrotem</option>
+        </select>
+        <input type="hidden" ng-model="newTime.dayKind" value="Workday" />
+        <button class="form-control btn btn-info" ng-click="addTimetable()">Dodaj</button>
+    </div>
+    <div class="col-md-4">
+        <button ng-click="save()" class="form-control btn btn-success">Zapisz</button>
+    </div>
+    <div class="col-md-4">
+        <button ng-click="delete()" class="form-control btn btn-danger">Usuń rozkład</button>
+    </div>
+</div>

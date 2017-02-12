@@ -1,0 +1,48 @@
+<form name="busstopForm" ng-submit="BusStopTableCtrl.addBusstop()" novalidate>
+    <div class="container-fluid">
+        <section class="container">
+            <div class="container-page">
+               
+				<div class="col-md-6">
+					
+					
+					 <div class="form-group col-lg-12" ng-class="{ 'has-error' : busstopForm.registrationNumber.$error.required && !busstopForm.registrationNumber.$pristine }">
+					 <h3 class="dark-grey">Add bus stop</h3>
+                        <label>Name</label>
+                        <input ng-model="BusStopTableCtrl.busstop.name" type="text" name="registrationNumber" required="required" class="form-control" id="" value="">
+                        <p ng-show="busstopForm.registrationNumber.$error.required && !busstopForm.registrationNumber.$pristine" class="help-block">Registration Number is required.</p>                
+                    </div>
+					
+					  <div class="form-group col-lg-12" ng-class="{ 'has-error' : busstopForm.address.$error.required && !busstopForm.address.$pristine }">
+                        <label>Address</label>
+                        <input ng-model="BusStopTableCtrl.busstop.address" type="text" required="required" name="address" class="form-control" id="" value="">
+                        <p ng-show="busstopForm.address.$error.required && !busstopForm.address.$pristine" class="help-block">Address is required</p>
+                    </div>
+					
+					  <div class="form-group col-lg-12" ng-class="{ 'has-error' : busstopForm.north.$error.required && !busstopForm.north.$pristine }">
+                        <label>Coordinates north</label>
+                        <input ng-model="BusStopTableCtrl.busstop.location.north" required="required" type="number" name="north" class="form-control" id="" value="">
+                         <p ng-show="busstopForm.north.$error.required && !busstopForm.north.$pristine" class="help-block">North is required</p>
+                    </div>
+                    
+                      <div class="form-group col-lg-12" ng-class="{ 'has-error' : busstopForm.east.$error.required && !busstopForm.east.$pristine }">
+                        <label>Coordinates east</label>
+                         <input ng-model="BusStopTableCtrl.busstop.location.east" required="required" type="number" name="east" class="form-control" id="" value="">
+                         <p ng-show="busstopForm.east.$error.required && !busstopForm.east.$pristine" class="help-block">East is required</p>
+                    </div>
+                    
+                    
+                    <div class="form-group col-lg-6">
+                        <button ng-disabled="busstopForm.$invalid" type="submit" class="btn btn-primary">Add busstop</button>
+                    	
+                    </div>
+                    <div class="form-group col-lg-6" ng-click=BusStopTableCtrl.closeBusstopAdd()>
+                    	<button type="button" class="btn btn-primary" >Close</button>
+                    </div>
+				</div>
+					
+			
+            </div>
+        </section>
+    </div>
+</form>

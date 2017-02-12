@@ -1,0 +1,56 @@
+<form name="driverAndBus" ng-submit="WSCtrl.addDriverAndBus()" novalidate>
+    <div class="container-fluid">
+        <section class="container">
+            <div class="container-page">
+                <div class="col-md-6">
+                    <h3 class="dark-grey own-form-label">Add driver and Bus</h3>
+
+                    <div class="form-group col-lg-12"
+                         ng-class="{ 'has-error' : driverAndBus.bus.$invalid && !driverAndBus.bus.$pristine }">
+                        <label class="own-form-label">Bus</label>
+                        <select ng-model="WSCtrl.busId" name="bus" class="form-control" required="required">
+                            <option value="" selected disabled>Select bus</option>
+                            <option ng-repeat="bus in WSCtrl.freeBuses" value="{{bus.id}}">
+                                {{bus.registrationNumber}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group col-lg-12"
+                         ng-class="{ 'has-error' : driverAndBus.driver.$invalid && !driverAndBus.driver.$pristine }">
+                        <label class="own-form-label">Driver</label>
+                        <select ng-model="WSCtrl.driverId" name="driver" class="form-control" required="required">
+                            <option value="" selected disabled>Select Driver</option>
+                            <option ng-repeat="driver in WSCtrl.freeDrivers" value="{{driver.id}}">
+                                {{driver.firstName+' '+driver.lastName+' ('+driver.username+')'}}
+                            </option>
+                        </select>
+                    </div>
+
+                    <!--<div class="form-group col-lg-6">-->
+                        <!--<button ng-disabled="driverAddForm.$invalid" type="submit" class="btn btn-primary">Add driver and Bus </button>-->
+                    <!--</div>-->
+
+                    <div class="form-group col-lg-3"></div>
+                    <div class="form-group col-lg-3"></div>
+                    <div class="form-group col-lg-2"></div>
+
+                    <div class="form-group col-lg-3">
+                        <button ng-disabled="driverAddForm.$invalid" type="submit" class="btn btn-primary">
+                            Next section <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</form>
+
+<!--<div class="form-group row">-->
+<!--<div class="col-xs-6 col-xs-offset-3">-->
+    <!--<a ui-sref="workscheduleadd.confirmation" class="btn btn-block btn-info">-->
+    <!--Next Section <span class="glyphicon glyphicon-circle-arrow-right"></span>-->
+    <!--</a>-->
+<!--</div>-->
+<!--</div>-->

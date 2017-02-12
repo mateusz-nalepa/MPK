@@ -1,0 +1,12 @@
+spring:
+  profiles:
+    active: default
+  datasource:
+    url: jdbc:h2:~/testdatabase
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: true
+  data:
+    rest:
+      base-path: /api

@@ -1,0 +1,53 @@
+<div ng-if="UsersCtrl.deleteCompleted==true" class="alert alert-success">
+	<strong>Delete Completed</strong>
+</div>
+<div ng-if="UsersCtrl.deleteCompleted==false" class="alert alert-danger">
+	<strong>Cannot delete this User</strong> User is Driver
+</div>
+<div class="row">
+	<div class="col-md-9">
+		<table class="table table-bordered table-responsive">
+			<tr>
+				<th>Login</th>
+				<th>Firstname</th>
+				<th>Lastname</th>
+				<th>Email</th>
+				<th>Phone number</th>
+				<th>Role</th>
+				<th>Actions</th>
+			</tr>
+			<tr ng-repeat="user in UsersCtrl.users" ng-if="user.active">
+				<td ng-if="!user.edit">{{user.login}}</td>
+				<td ng-if="user.edit"><input ng-model="user.login" type="text"
+					class="form-control"></td>
+				<td ng-if="!user.edit">{{user.name}}</td>
+				<td ng-if="user.edit"><input ng-model="user.name" type="text"
+					class="form-control"></td>
+				<td ng-if="!user.edit">{{user.surname}}</td>
+				<td ng-if="user.edit"><input ng-model="user.surname"
+					type="text" class="form-control"></td>
+				<td ng-if="!user.edit">{{user.email}}</td>
+				<td ng-if="user.edit"><input ng-model="user.email" type="text"
+					class="form-control"></td>
+				<td ng-if="!user.edit">{{user.phone}}</td>
+				<td ng-if="user.edit"><input ng-model="user.phone" type="text"
+					class="form-control"></td>
+				<td><button ng-if="user.role=='ROLE_ADMIN'" ng-click="UsersCtrl.setRole(user,'ROLE_USER')"
+						type="button" class="btn btn-primary">ADMIN</button>
+					<button ng-if="user.role == 'ROLE_USER'" ng-click="UsersCtrl.setRole(user,'ROLE_ADMIN')" type="button"
+						class="btn btn-info">USER</button></td>
+				<td>
+					<button ng-if="!user.edit" ng-click="UsersCtrl.setUserToEdit(user)"
+						type="button" class="btn btn-warning">Edit</button>
+					<button ng-if="user.edit" ng-click="UsersCtrl.editUser(user)"
+						type="button" class="btn btn-success">Apply</button>
+					<button ng-click="UsersCtrl.deleteUser(user)" type="button"
+						class="btn btn-danger">Delete</button>
+				</td>
+			</tr>
+		</table>
+	</div>
+	<div ng-click=UsersCtrl.showRegistrationModal() class="col-md-1">
+		<button type="button" class="btn btn-primary">Add user</button>
+	</div>
+</div>

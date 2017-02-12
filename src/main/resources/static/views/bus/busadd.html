@@ -1,0 +1,47 @@
+<form name="busForm" ng-submit="BusesCtrl.add()" novalidate>
+    <div class="container-fluid">
+        <section class="container">
+            <div class="container-page">
+                <div class="col-md-6">
+                    <h3 class="dark-grey">Bus data</h3>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : BusesCtrl.sameRegistrationNumberInUse || (busForm.registrationNumber.$invalid && !busForm.registrationNumber.$pristine) }">
+                        <label>Registration Number</label>
+                        <input ng-model="BusesCtrl.bus.registrationNumber" type="text" name="registrationNumber" class="form-control" required="required">
+                        <p ng-show="busForm.registrationNumber.$invalid && !busForm.registrationNumber.$pristine" class="help-block">Registration Number is required.</p>
+                        <p ng-show="BusesCtrl.sameRegistrationNumberInUse" class="help-block">Registration Number is in use</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : busForm.yearOfProduction.$invalid && !busForm.yearOfProduction.$pristine }">
+                        <label>Year of production</label>
+                        <input ng-model="BusesCtrl.bus.yearOfProduction" required="required" type="number" name="yearOfProduction" class="form-control">
+                        <p ng-show="busForm.yearOfProduction.$invalid && !busForm.yearOfProduction.$pristine" class="help-block">Year of production is required</p>
+                    </div>
+
+                    <h3 class="dark-grey">Coordinates</h3>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : busForm.location.north.$invalid && !busForm.location.north.$pristine }">
+                        <label>North</label>
+                        <input ng-model="BusesCtrl.bus.location.north" required="required" type="number" name="north" class="form-control">
+                        <p ng-show="busForm.location.north.$invalid && !busForm.location.north.$pristine" class="help-block">North is required</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : busForm.location.east.$invalid && !busForm.location.east.$pristine }">
+                        <label>East</label>
+                        <input ng-model="BusesCtrl.bus.location.east" required="required" type="number" name="east" class="form-control">
+                        <p ng-show="busForm.location.east.$invalid && !busForm.location.east.$pristine" class="help-block">East is required</p>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <button ng-disabled="busForm.$invalid" type="submit" class="btn btn-primary">Add</button>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <button ng-click="BusesCtrl.closeBusAddModal()" type="button" class="btn btn-primary">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</form>

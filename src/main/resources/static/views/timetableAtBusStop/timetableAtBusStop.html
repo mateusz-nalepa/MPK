@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="col-md-4">
+        <h4>Linie</h4>
+            <div ng-repeat="line in busLines" ng-click="selectLine(line.id)">
+                <button type="button" class="btn btn-primary btn-lg btn-block">#{{line.id}} {{line.name}}</button>
+            </div>
+
+    </div>
+    <div class="col-md-4">
+        <h4>Przystanki</h4>
+            <div ng-repeat="route in routes.busStops" ng-click="selectRoute(route.id)">
+                <button type="button" class="btn btn-info" style="width:250px">#{{route.id}} {{route.name}}</button>
+            </div>
+    </div>
+    <div class="col-md-4">
+        <h4>Rozkład jazdy</h4>
+        <div>
+                <div ng-repeat="timetable in timetables.straight.timetableAtWorkday">
+                    <button type="button" class="btn btn-success" style="width:100px">{{timetable}}</button>
+                </div>
+        </div>
+        <hr />
+        <div>
+                <div ng-repeat="timetable in timetables.reversed.timetableAtWorkday">
+                    <button type="button" class="btn btn-danger" style="width:100px">{{timetable}}</button>
+                </div>
+        </div>
+    </div>
+</div>

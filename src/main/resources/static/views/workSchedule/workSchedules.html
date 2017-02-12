@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-9">
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <th>Bus - Registration Number</th>
+                <th>Driver</th>
+                <th>Driver Phone</th>
+                <th>Work Begin</th>
+                <th>Work End</th>
+                <th>Hours</th>
+                <th>Action</th>
+            </tr>
+            <tr ng-repeat="ws in WSCtrl.workSchedules"  >
+                <td>{{ws.busHelper.registrationNumber}}</td>
+                <td>{{ws.driverHelper.firstName+' '+ws.driverHelper.lastName+' ('+ws.driverHelper.username+')'}}</td>
+                <td>{{ws.driverHelper.phone}}</td>
+                <td>{{ws.workBegin[0]}}.{{ws.workBegin[1]}}.{{ws.workBegin[2]}} - {{ws.workBegin[3]}}:{{ws.workBegin[4]}} </td>
+                <td>{{ws.workEnd[0]}}.{{ws.workEnd[1]}}.{{ws.workEnd[2]}} - {{ws.workEnd[3]}}:{{ws.workEnd[4]}} </td>
+                <td>{{ws.hours}}</td>
+                <td>
+                    <button ng-click="WSCtrl.deleteWorkSchedule(ws)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="col-md-1">
+        <button ui-sref="workscheduleadd.rangehours" type="button" class="btn btn-primary">
+            Add Work Schedule
+        </button>
+    </div>
+</div>

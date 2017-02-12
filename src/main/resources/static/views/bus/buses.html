@@ -1,0 +1,54 @@
+<div ng-if="BusesCtrl.deleteCompleted==true" class="alert alert-success">
+    <strong>Delete Completed</strong>
+</div>
+<div ng-if="BusesCtrl.deleteCompleted==false" class="alert alert-danger">
+    <strong>Cannot delete this bus</strong> Bus is in use in WorkSchedules
+</div>
+<div class="row">
+    <div class="col-md-9">
+        <table class="table table-bordered table-responsive">
+            <tr>
+                <th>Registration Number</th>
+                <th>North</th>
+                <th>East</th>
+                <th>Year of production</th>
+                <th>Bus Status</th>
+                <th>Actions</th>
+            </tr>
+            <tr ng-repeat="bus in BusesCtrl.buses"  ng-if="bus.active">
+                <td ng-if="!bus.edit">{{bus.registrationNumber}}</td>
+                <td ng-if="bus.edit">
+                    <!--<input ng-model="bus.registrationNumber" type="text" class="form-control"> -->
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : BusesCtrl.sameRegistrationNumberInUse || (busForm.registrationNumber.$invalid && !busForm.registrationNumber.$pristine) }">
+                        <input ng-model="bus.registrationNumber" type="text" name="registrationNumber" class="form-control" required="required">
+                        <p ng-show="busForm.registrationNumber.$invalid && !busForm.registrationNumber.$pristine" class="help-block">Registration Number is required.</p>
+                        <p ng-show="BusesCtrl.sameRegistrationNumberInUse" class="help-block">Registration Number is in use</p>
+                    </div>
+                </td>
+
+                <td ng-if="!bus.edit">{{bus.location.north}}</td>
+                <td ng-if="bus.edit"><input ng-model="bus.location.north" type="number" class="form-control"></td>
+
+                <td ng-if="!bus.edit">{{bus.location.east}}</td>
+                <td ng-if="bus.edit"><input ng-model="bus.location.east" type="number" class="form-control"></td>
+
+                <td ng-if="!bus.edit">{{bus.yearOfProduction}}</td>
+                <td ng-if="bus.edit"><input ng-model="bus.yearOfProduction" type="number" class="form-control"></td>
+
+                <td>
+                    <button ng-if="bus.status=='Active'" ng-click="BusesCtrl.setStatus(bus,'Broken')" type="button" class="btn btn-success">Active</button>
+                    <button ng-if="bus.status == 'Broken'" ng-click="BusesCtrl.setStatus(bus,'Active')" type="button" class="btn btn-danger">Broken</button>
+                </td>
+                <td>
+                    <button ng-if="!bus.edit" ng-click="BusesCtrl.setBusToEdit(bus)" type="button" class="btn btn-warning">Edit</button>
+                    <button ng-if="bus.edit" ng-click="BusesCtrl.editBus(bus)" type="button" class="btn btn-success">Apply</button>
+                    <button ng-click="BusesCtrl.deleteBus(bus)" type="button" class="btn btn-danger">Delete</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div ng-click="BusesCtrl.openBusAddModal()" class="col-md-1">
+        <button type="button" class="btn btn-primary">Add bus</button>
+    </div>
+</div>

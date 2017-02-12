@@ -1,0 +1,43 @@
+<div class="row">
+	<div class="col-md-5">
+		<table class="table table-bordered table-responsive">
+			<tr>
+				<th>Line ID</th>
+				<th>Name</th>
+				<th>Type</th>
+				<th>Action</th>
+			</tr>
+			<tr ng-repeat="busline in BusLineTableCtrl.buslines">
+				<td ng-if="!busline.edit">{{busline.id}}</td>
+				<td ng-if="busline.edit"><input ng-model="busline.id" type="text" 
+					class="form-control"></td>
+				
+				<td ng-if="!busline.edit">{{busline.name}}</td>
+				<td ng-if="busline.edit"><input ng-model="busline.name" type="text" 
+					class="form-control"></td>
+				
+				<td ng-if="!busline.edit">{{busline.type}}</td>
+				<td ng-if="busline.edit"><input ng-model="busline.type" type="text" 
+					class="form-control"></td>
+				
+				<td>
+					<button ng-if="!busline.edit" ng-click="BusLineTableCtrl.setBusLineToEdit(busline)"
+						type="button" class="btn btn-warning">Edit</button>
+					<button ng-if="busline.edit" ng-click="BusLineTableCtrl.editBusLine(busline)"
+						type="button" class="btn btn-success">Apply</button>
+					<button ng-click="BusLineTableCtrl.deleteBusLine(busline)" type="button"
+						class="btn btn-danger">Delete</button>
+					<button ui-sref="route({'busLine': busline.id})" type="button" class="btn btn-default">Edit route</button>
+					<button ui-sref="timetable({'busLine': busline.id})" type="button" class="btn btn-info">Edit timetable</button>
+				</td>
+					
+			
+			</tr>
+			
+		</table>
+	</div>
+	
+	<div ng-click=BusLineTableCtrl.showBusLineAdd() class="col-md-1">
+		<button type="button" class="btn btn-primary">Add busline</button>
+	</div>
+</div>

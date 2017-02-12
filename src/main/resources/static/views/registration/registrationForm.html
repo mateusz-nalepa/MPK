@@ -1,0 +1,76 @@
+<form name="userForm" ng-submit="RegistrationCtrl.register()" novalidate>
+    <div class="container-fluid">
+        <section class="container">
+            <div class="container-page">
+                <div class="col-md-6">
+                    <h3 class="dark-grey">Registration data</h3>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : RegistrationCtrl.sameLoginInUse || (userForm.login.$invalid && !userForm.login.$pristine) }">
+                        <label>Username</label>
+                        <input ng-model="RegistrationCtrl.user.login" type="text" name="login" class="form-control" required="required">
+                        <p ng-show="userForm.login.$invalid && !userForm.login.$pristine" class="help-block">Login is required.</p>
+                        <p ng-show="RegistrationCtrl.sameLoginInUse" class="help-block">Login is in use</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }">
+                        <label>Password</label>
+                        <input ng-model="RegistrationCtrl.user.password" type="password" name="password" class="form-control" required="required" ng-minlength="5">
+                        <p ng-show="userForm.password.$error.required && !userForm.password.$pristine" class="help-block">Password is required.</p>
+                        <p ng-show="userForm.password.$error.minlength" class="help-block"> Password is too short.</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : RegistrationCtrl.user.passwordConfirm != RegistrationCtrl.user.password || (userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine) }">
+                        <label>Repeat Password</label>
+                        <input ng-model="RegistrationCtrl.user.passwordConfirm" type="password" name="passwordConfirm" class="form-control" required="required" pattern=".{3,}"   required title="3 characters minimum">
+                        <p ng-show="userForm.passwordConfirm.$invalid && !userForm.passwordConfirm.$pristine" class="help-block">Confirm Your password</p>
+                        <p ng-show="RegistrationCtrl.user.passwordConfirm != RegistrationCtrl.user.password" class="help-block">Passwords are different</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : RegistrationCtrl.sameEmailInUse || (userForm.email.$invalid && !userForm.email.$pristine) }">
+                        <label>Email Address</label>
+                        <input ng-model="RegistrationCtrl.user.email" required="required" type="email" name="email" class="form-control">
+                        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Email is required</p>
+                        <p ng-show="RegistrationCtrl.sameEmailInUse" class="help-block">Email is in use</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : RegistrationCtrl.user.emailConfirm != RegistrationCtrl.user.email || (userForm.emailConfirm.$invalid && !userForm.emailConfirm.$pristine) }">
+                        <label>Repeat Email Address</label>
+                        <input ng-model="RegistrationCtrl.user.emailConfirm" required="required" type="email" name="emailConfirm" class="form-control" >
+                        <p ng-show="userForm.emailConfirm.$invalid && !userForm.emailConfirm.$pristine" class="help-block">Confirm Your email</p>
+                        <p ng-show="RegistrationCtrl.user.emailConfirm != RegistrationCtrl.user.email" class="help-block">Emails are different</p>
+                    </div>
+
+
+                    <h3 class="dark-grey">Personal Data</h3>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+                        <label>Name</label>
+                        <input ng-model="RegistrationCtrl.user.name" required="required" type="text" name="name" class="form-control">
+                        <p ng-show="userForm.name.$invalid && !userForm.name.$pristine" class="help-block">Name is required</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : userForm.surname.$invalid && !userForm.surname.$pristine }">
+                        <label>Surname</label>
+                        <input ng-model="RegistrationCtrl.user.surname" required="required" type="text" name="surname" class="form-control">
+                        <p ng-show="userForm.surname.$invalid && !userForm.surname.$pristine" class="help-block">Surname is required</p>
+                    </div>
+
+                    <div class="form-group col-lg-12" ng-class="{ 'has-error' : userForm.phone.$invalid && !userForm.phone.$pristine }">
+                        <label>Phone Number</label>
+                        <input ng-model="RegistrationCtrl.user.phone" required="required" type="" name="phone" class="form-control">
+                        <p ng-show="userForm.phone.$invalid && !userForm.phone.$pristine" class="help-block">Phone number is required</p>
+                    </div>
+
+                    <div class="form-group col-lg-6">
+                        <button ng-disabled="userForm.$invalid" type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                    
+                    <div class="form-group col-lg-6">
+                        <button ng-click="RegistrationCtrl.closeRegistrationModal()" type="button" class="btn btn-primary">Close</button>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+</form>
