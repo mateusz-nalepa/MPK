@@ -1,3 +1,3 @@
 # MPK
 Projekt na Politechnikę dotyczący zarządzania komunikacją społęczną. 
-Napisany w Spring Boot, Hibernate, Lombok + Angular1.
+Napisany w Spring Boot, Hibernate, Lombok + Angular JS.
